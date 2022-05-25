@@ -1,0 +1,35 @@
+.verify {
+  min-width: fit-content;
+  overflow-y: scroll;
+  margin-left: 85%;
+  margin-top: 20px;
+}
+
+.appwallet {
+  margin: 0px auto;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.verify::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.verify {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.verify__header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
+}
+
+.verify__header > h2 {
+  font-size: 20px;
+  font-weight: 800;
+}
