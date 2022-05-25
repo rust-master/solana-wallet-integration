@@ -1,21 +1,29 @@
-import React from 'react';
+import { useEffect } from "react";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { useWallet } from '@solana/wallet-adapter-react';
+
 import "./verify.css";
 
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+function Verify() {
 
-class Verify extends React.Component {
+    const { publicKey, wallet, disconnect } = useWallet();
 
-    render() {
-        return (
-            <div className="verify">
-                <div className="verify__header">
-                    <div className="appwallet" >
-                        <WalletMultiButton />
-                    </div>
+    useEffect(() => {
+        console.log("publicKey: " + publicKey);
+        console.log("wallet: " + wallet);
+        console.log("disconnect: " + disconnect);
+
+    }, []);
+
+    return (
+        <div className="verify">
+            <div className="verify__header">
+                <div className="appwallet" >
+                    <WalletMultiButton />
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Verify;
