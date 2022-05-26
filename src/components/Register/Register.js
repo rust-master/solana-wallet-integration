@@ -72,6 +72,17 @@ function Register() {
         </button>
     );
 
+    const discordDetails = () => (
+        <div className="header">
+            <img
+                elevation={4}
+                alt="Discord"
+                src={`https://cdn.discordapp.com/avatars/752156525723779074/2d7953529d448b83dbc30d10ab83b277?size=512`}
+                style={{ width: "160px", height: "160px" }}
+            />
+        </div>
+    )
+
     // const renderConnectedContainer = () => {
     //   // If we hit this, it means the program account hasn't been initialized.
     //   if (gifList === null) {
@@ -106,7 +117,8 @@ function Register() {
 
     useEffect(() => {
         if (walletAddress) {
-            console.log('Fetching GIF list...');
+            // log with emjoi
+            console.log(`💰  ${walletAddress}`);
 
         }
     }, [walletAddress]);
@@ -115,9 +127,11 @@ function Register() {
         <div className="App">
             <div className="container">
                 <div className="header-container">
+                    {!walletAddress && discordDetails()}
                     {!walletAddress && renderNotConnectedContainer()}
                     {/* We just need to add the inverse here! */}
                     {/* {walletAddress && renderConnectedContainer()} */}
+
                 </div>
             </div>
         </div>
