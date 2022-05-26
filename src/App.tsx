@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Context from "./components/Context/Context";
-import Verify from "./components/Verify/Verify";
+import ConnectWallet from "./components/ConnectWallet/ConnectWallet";
 
 
 require("./App.css");
@@ -11,7 +11,7 @@ const App: FC = () => {
         <div>
             <Context>
                 < div className="app">
-                    <Verify />
+                    <ConnectWallet />
                 </div>
             </Context>
         </div>
