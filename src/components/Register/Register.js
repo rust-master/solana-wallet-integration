@@ -7,6 +7,9 @@ function Register() {
     const [publicKey, setPublicKey] = useState(null);
     const [signature, setSignature] = useState(null);
 
+    const [serverLogo, setServerLogo] = React.useState(decodeURIComponent("grape.png"));
+
+
     const checkIfWalletIsConnected = async () => {
         try {
             const { solana } = window;
@@ -38,7 +41,7 @@ function Register() {
             console.log("Connected with Public Key:", response.publicKey.toString());
             setWalletAddress(response.publicKey.toString());
 
-            const message = "PAKCOIN"
+            const message = "$PAKCOIN"
             const encodedMessage = new TextEncoder().encode(message)
             const signedMessage = await solana.signMessage(encodedMessage, 'utf8')
 
@@ -74,6 +77,12 @@ function Register() {
 
     const discordDetails = () => (
         <div className="header">
+            {/* <img
+                elevation={4}
+                alt="Grape"
+                src={`/server-logos/${serverLogo}`}
+                style={{ width: "160px", height: "160px" }}
+            /> */}
             <img
                 elevation={4}
                 alt="Discord"
