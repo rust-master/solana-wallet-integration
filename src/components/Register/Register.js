@@ -1,8 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./register.css";
-const { binary_to_base58 } = require('base58-js')
+const { binary_to_base58 } = require('base58-js');
+
+function getParam(param) {
+    let parameter = new URLSearchParams(window.location.search).get(param);
+    if (!parameter)
+        parameter = new URLSearchParams(window.location.hash).get(param); // this will not return correctly because we have a ? after the hash
+    //console.log(param + ': ' + parameter);
+    return parameter;
+}
+
 
 function Register() {
+    const [code, setCode] = React.useState(getParam('code'));
     const [walletAddress, setWalletAddress] = useState(null);
     const [publicKey, setPublicKey] = useState(null);
     const [signature, setSignature] = useState(null);
@@ -125,6 +135,7 @@ function Register() {
 
 
     useEffect(() => {
+        console.log("code: " + code);
         if (walletAddress) {
             // log with emjoi
             console.log(`💰  ${walletAddress}`);
@@ -142,6 +153,7 @@ function Register() {
                     {/* {walletAddress && renderConnectedContainer()} */}
 
                 </div>
+                <h1>{code}</h1>
             </div>
         </div>
     );
